@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import torch.nn as nn
 from torch.utils.data import Dataset
-WINDOW=500
+WINDOW=4000
 class RNN(nn.Module):
         def __init__(self):
             super(RNN, self).__init__()
@@ -20,14 +20,14 @@ class DemandDataset(Dataset):
         self.data = df
         self.x = self.data.iloc[:, -1].values
     def __len__(self):
-        return len(self.data)-30
+        return len(self.data)-WINDOW
     def __getitem__(self, idx):
-        return self.x[idx:idx+30], self.x[idx+30]
+        return self.x[idx:idx+WINDOW], self.x[idx+WINDOW]
 
-def predict(WINDOW):
+def predict(WINDOW, dataset):
     # 모델 예측
     
-    model = torch.load(f"../model/model{WINDOW}.pth")
+    model = torch.load(f"./model/model{WINDOW}.pth")
     model.eval()
 
     # 예측 데이터 생성
@@ -42,7 +42,6 @@ def predict(WINDOW):
     pred = np.concatenate([np.zeros((WINDOW, 1)), pred])
     # 예측 데이터 저장
     df["예측"] = pred
-    df[["sum","예측"]].to_csv("test.csv")
     data = list(df["예측"].values)
     sumdata = list(df["sum"].values)  
     print(len(sumdata), len(data))
