@@ -1,53 +1,95 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Simple Page</title>
-    <style>
-      header {
-        background-color: #f0f0f0;
-        height: 40px;
-        padding: 10px;
-      }
-      h1 {
-        margin: 1px;
-        padding: 5px;
-      }
-      h2 {
-        margin: 1px;
-        padding: 5px;
-      }
-      main {
-        display: flex;
-        flex-direction: column;
-        height: 750px;
-      }
-      article {
-        margin: 5px;
-        padding: 5px;
-        height: 650px;
-      }
-      footer {
-        text-align: center;
-      }
-      iframe {
-        width: 95%;
-        border: none;
-        height: 100%;
-        align-self: center;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h2>진우 발표</h2>
-    </header>
+<html lang="ko">
 
-    <main>
-      <iframe src="html/iframe1.html"></iframe>
-    </main>
+<head>
+  <meta charset="UTF-8">
+  <title>나의 간단한 페이지</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
 
-    <footer>
-      <p>&copy; 2024 JinWoo Page. All rights reserved.</p>
-    </footer>
-  </body>
+    header {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 1px;
+      padding: 5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      /* main 영역이 화면의 남은 공간을 모두 차지하도록 설정 */
+    }
+
+    article {
+      margin: 5px;
+      padding: 5px;
+      height: 650px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 10px;
+      height: 50px;
+      /* footer의 높이를 작게 조절 */
+    }
+
+    iframe {
+      width: 95%;
+      border: none;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>4조 발표</h2>
+  </header>
+
+  <nav>
+    <a href="javascript:void(0)" onclick="changePage('옥영신')">옥영신</a>
+    <a href="javascript:void(0)" onclick="changePage('noah_index.html')">명노아</a>
+    <a href="javascript:void(0)" onclick="changePage('이현길')">이현길</a>
+    <a href="javascript:void(0)" onclick="changePage('html/iframe2.html')">전진우</a>
+  </nav>
+
+  <main>
+    <iframe id="contentFrame" src="html/iframe1.html"></iframe>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 JinWoo Page. All rights reserved.</p>
+  </footer>
+</body>
+
 </html>
