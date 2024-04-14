@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주도 전기 수요 예측</title>
+    <!-- 차트를 그리기 위한 Chart.js 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="noah_style.css">
+
+</head>
+
+<body>
+    <h1>제주도 전기 수요 예측</h1>
+    <p>RNN(Recurrent Neural Network)을 활용하여 제주도의 전기 수요를 예측합니다.</p>
+    <form action="./cgi-bin/noah_process.py" method="post">
+        <label for="output_count">출력할 데이터 개수:</label>
+        <!--콤보박스 형태의 받는 input항목 작성-->
+        <select name="output_count" id="output_count">
+            <option value="5479">현재 데이터까지만</option>
+            <option value="5844">현재 데이터 + 향후 1년까지만</option>
+            <option value="7304">현재 데이터 + 향후 5년까지만</option>
+            <option value="9129">현재 데이터 + 향후 10년까지만</option>
+        </select><br><br>
+
+        <label for="input_count">예측에 사용할 데이터 개수:</label>
+
+        <select name="input_count" id="input_count">
+            <option value="30">30</option>
+            <option value="90">90</option>
+            <option value="180">180</option>
+            <option value="390">390</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+            <option value="2000">2000</option>
+            <option value="4000">4000</option>
+        </select><br><br>
+        <button type="submit">예측 시작!</button>
+    </form>
+
+    <h2>관련 주가 확인!</h2>
+    <script>
+        function loadURL(url) {
+            document.getElementById('output').src = url;
+        }
+    </script>
+
+
+    <button onclick="loadURL('https://finance.naver.com/item/main.naver?code=000500')">가온전선</button>
+    <button onclick="loadURL('https://finance.naver.com/item/main.naver?code=006345')">대원전선우</button>
+    <button onclick="loadURL('https://finance.naver.com/item/main.naver?code=388050')">지투파워</button>
+
+    <iframe id="output" name="output" width="100%" height="400px"></iframe>
+
+
+
+
+</body>
+
+</html>
