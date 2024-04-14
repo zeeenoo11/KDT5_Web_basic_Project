@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../mystyle.css" />
+    <style>
+      button.menu {
+        width: 90%;
+        height: 50px;
+        background-color: #4bd259;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>따라서 - 전력 가격 분석 시작</h1>
+      <h2>데이터 1 : 전력거래 계통한계가격(SMP) 2001/04 ~ 2024/03</h2>
+    </header>
+
+    <main style="height: 500px;">
+
+      <div id="left" style="float: left; width: 40%;">
+        <fieldset>
+          <legend>SMP RNN</legend>
+          모델 : RNN<br />
+          데이터셋 주요 특징 :<br />
+          def __getitem__(self, idx):
+          X = self.data[idx:idx+self.seq_len]
+          y = self.data[idx+self.seq_len]
+          return X, y
+          <br />
+          <hr>
+          에포크 : 20,000<br />
+          배치 사이즈 : 8<br />
+          학습률 : 0.001<br />
+        </fieldset>
+      </div>
+
+        <div id="image" style="float:right; width:50%">
+          <img src="../md_img/image.png" alt="그래프" height="90%" />
+          <h3>결과 : R2 값이 이승저승 왔다갔다한다</h3>
+          <p>예상문제 : 1) 데이터양 2) 학습률 3) 학습 단위</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div id="buttons" style="display: flex; justify-content: space-between">
+      <button onclick="location.href='iframe1.html'" style="float: left">
+        이전 페이지
+      </button>
+      <button onclick="location.href='iframe2.html'" style="float: right">
+        다음 페이지
+      </button>
+      </div>
+    </footer>
+  </body>
+</html>
