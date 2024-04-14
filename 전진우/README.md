@@ -214,10 +214,10 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 
 ### 할 일 :
 
-[] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
+[ㅇ] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
 [ㅇ] 12개월 모델 만들기 (난이도 하 우선순위 상)  
 [ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
-[] chart.js 사용 (난이도 상 우선순위 중)  
+[ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
 : https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
 :https://www.chartjs.org/docs/latest/getting-started/    
 [] 구간별로 나누어 예측하기 (급등, 급락) (난이도 상 우선순위 중하)  
@@ -250,6 +250,45 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 
 - html에서 받아온 정보로 모델을 돌려서 예측값을 보내주는 파이썬 파일
 - 모델을 불러와서 예측값을 보내주는 함수를 만들어보자
+
+### pyscript ??
+https://pyscript.net/examples/hello_world.html
+: html 안에서 파이썬 가능한데?
+
 ![send data check](md_img/image_form_check.png)
+: 데이터 잘 넘어간다
 
+![graph test!](md_img/image_chart_check.png)
 
+### 최종 완성 : 근데 함수 연산이 안된다 ㅠㅠ
+
+- 일단 try: exacept:로 예외처리하고 안되면 임의 값 출력
+
+![temp graph](md_img/image_try_exp.png)
+
+![try_except](md_img/image_try_exp_code.png)
+: 만들어진 try exp 코드 ㅎ
+
+![index_check](md_img/image_index_check.png)
+: 인덱스 페이지에서 실행되도록 만들었다!
+
+## 퇴근!
+
+### 다음 할 일
+
+#### 뿌듯 -
+[ㅇ] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
+[ㅇ] 12개월 모델 만들기 (난이도 하 우선순위 상)  
+[ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
+[ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
+: https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
+:https://www.chartjs.org/docs/latest/getting-started/   
+
+#### 할 일
+[] 내부 예측 연산 작동시키기 (난이도 상 우선순위 최상)
+[] 입력 html (model_12) 완성하기 (난이도 하 우선순위 상)
+[] 6개월 모델도 만들기 (난이도 상 우선순위 중)
+[] 구간별로 나누어 예측하기 (급등, 급락) (난이도 상 우선순위 중)
+[] 다른 팀원 자료와 연동하기 (난이도 최상 우선순위 중하)
+[] 이미지 슬라이드 만들기 (난이도 상 우선순위 하)  
+[] 시간별 데이터로 예측하기 (난이도 하 우선순위 하)
