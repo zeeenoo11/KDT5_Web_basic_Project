@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../mystyle.css" />
+    <style>
+      button.menu {
+        width: 90%;
+        height: 50px;
+        background-color: #4bd259;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>따라서 - 전력 가격 분석 시작</h1>
+      <h2>데이터 1 : 전력거래 계통한계가격(SMP) 2001/04 ~ 2024/03</h2>
+    </header>
+
+    <main style="height: 500px;">
+      <div id="left" style="float: left; width: 40%;">
+        <fieldset>
+          <legend>데이터 개요</legend>
+          <p>파일명 : 전력거래 계통한계가격(SMP) </p>
+          <p>기간 : 2001/04 ~ 2024/03 (23년)</p>
+          
+          <hr />
+
+          <p>SMP : 계통한계가격, 실시간 전력 가격</p>
+          <p>단위 : 원/kWh</p>
+          <p>데이터 형식 : 시계열 데이터</p>
+          <p>데이터 출처 : <a href="https://epsis.kpx.or.kr/epsisnew/selectEkmaSmpSmpChart.do?menuId=040201"> 전력통계정보시스템</a></p>
+        </fieldset>
+      </div>
+
+        <div id="image" style="float:right; width:50%">
+          <iframe src="https://epsis.kpx.or.kr/epsisnew/selectEkmaSmpSmpChart.do?menuId=040201" style="width: 100%; height: 400px; border: none;"></iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div id="buttons" style="display: flex; justify-content: space-between">
+      <button onclick="location.href='iframe1.html'" style="float: left">
+        이전 페이지
+      </button>
+      <button onclick="location.href='iframe2_2.html'" style="float: right">
+        다음 페이지
+      </button>
+      </div>
+    </footer>
+  </body>
+</html>
