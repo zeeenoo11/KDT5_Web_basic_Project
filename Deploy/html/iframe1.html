@@ -1,104 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      button {
-        padding: 10px;
-        margin: 10px;
-        background-color: #004aad;
-        color: white;
-        border: none;
-        border-radius: 5%;
-        cursor: pointer;
-        width: 100px;
-        height: 50px;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            button {
+                padding: 10px;
+                margin: 10px;
+                background-color: #004aad;
+                color: white;
+                border: none;
+                border-radius: 5%;
+                cursor: pointer;
+                width: 100px;
+                height: 50px;
+            }
 
-        h1 {
-          text-align: center;
-          color: white;
-        }
-        h2 {
-          text-align: center;
-          color: white;
-        }
-        iframe {
-          width: 100%;
-          height: 500px;
-          border: none;
-        }
-        header {
-          background-color: #004aad;
-          padding: 10px;
-          text-align: center;
-        }
-      iframe {
-        width: 100%;
-        height: 300px;
-        border: none;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>전력 가격 분석</h1>
-      <h2>전력거래 계통한계가격(SMP)</h2>
-    </header>
+            h1 {
+                text-align: center;
+                color: white;
+            }
+            h2 {
+                text-align: center;
+                color: white;
+            }
+            iframe {
+                width: 100%;
+                height: 500px;
+                border: none;
+            }
+            header {
+                background-color: #004aad;
+                padding: 10px;
+                text-align: center;
+            }
+            iframe {
+                width: 100%;
+                height: 300px;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>전력 가격 분석</h1>
+            <h2>전력거래 계통한계가격(SMP)</h2>
+        </header>
 
-    <main style="height: 500px;">
+        <main style="height: 500px">
+            <div id="image">
+                <iframe
+                    src="https://epsis.kpx.or.kr/epsisnew/selectEkmaSmpSmpChart.do?menuId=040201"
+                    style="width: 100%; height: 500px; border: none"
+                ></iframe>
+            </div>
+        </main>
 
-      <div id="image">
-        <iframe src="https://epsis.kpx.or.kr/epsisnew/selectEkmaSmpSmpChart.do?menuId=040201"
-          style="width: 100%; height: 500px; border: none;"></iframe>
-      </div>
+        <div id="옥영신" class="section">
+            <h2>옥영신</h2>
+            <hr />
+            <p>분석 내용 및 결과를 작성하세요.</p>
+            <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
+        </div>
 
-    </main>
+        <div id="명노아" class="section">
+            <h2>명노아</h2>
+            <hr />
+            <p>
+                국내 시간별 전력 수요량, 특히 제주도 시간별 전략 수요량을 통하여 RNN 분석 모델 개발<br />
+                총 24시간동안 사용한 전력을 참고해서 그 다음날 전력 사용량을 일별로 예측함
+            </p>
+            <p>
+                결론 : <br />
+                1. 기본적으로 전기요금 인상, 기온 변화로 전기 수요가 소폭 감소함 => 전기차 판매 감소<br />
+                2. 반면, 전선 제조 원가의 90%을 차지하는 구리 가격은 최고치 => AI산업 확장에 따라 수요 증가<br />
+                3. 관련 주가 : 가온전선, 대원전선우, 지투파워 => 하나 사보자! .<br />
+            </p>
+        </div>
 
+        <div id="이현길" class="section">
+            <h2>이현길</h2>
+            <hr />
+            <p>
+                과거의 유가 데이터 변동량을 바탕으로 미래의 유가 변동량을 예측하는 RNN 모델 개발<br />
+                과거 약 5년간의 일별 데이터를 통해 다음날의 유가를 예측하는 방식으로 구현
+            </p>
+            <p>
+                결론 : <br />
+                1. 국제 유가는 단순히 과거 변동량에만 영향받는 것이 아니라 다양한 국제 정세와 밀접한 영향이 있음<br />
+                2. 따라서 정확한 예측을 위해선 유가가 급격하게 변동한 구간에 발생했던 주요 사건 등을 확인할 필요가 있음<br />
+                3-1. 2008년 서브프라임 모기지 사태 : 급등<br />
+                3-2. 2014~16 유가 폭락 : 달러강세, 이란핵협상, 중국 성장 둔화<br />
+                3-3. 2020년 코로나 펜더믹 : 수요 감소 - 급락<br />
+                3-4. 2021년 금리 인상 : 유가 상승<br />
+                3-5. 2022년 러-우 전쟁 : 에너지 수입 통제 : 물가, 유가 상승<br />
+                3-6. 2024년 미국내 셰일가스, WTI 증산, 베네수엘라 제재 일부 해제, OPEC 증산 합의<br />
+            </p>
+        </div>
 
-
-  <div id="옥영신" class="section">
-    <h2>옥영신</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-  <div id="명노아" class="section">
-    <h2>명노아</h2>
-    <hr>
-    <p>
-      국내 시간별 전력 수요량, 특히 제주도 시간별 전략 수요량을 통하여 RNN 분석 모델 개발<br>
-      총 24시간동안 사용한 전력을 참고해서 그 다음날 전력 사용량을 일별로 예측함
-    </p>
-    <p>결론 : <br>
-      1. 기본적으로 전기요금 인상, 기온 변화로 전기 수요가 소폭 감소함 => 전기차 판매 감소<br>
-      2. 반면, 전선 제조 원가의 90%을 차지하는 구리 가격은 최고치 => AI산업 확장에 따라 수요 증가<br>
-      3. 관련 주가 : 가온전선, 대원전선우, 지투파워 => 하나 사보자! .<br></p>
-  </div>
-
-  <div id="이현길" class="section">
-    <h2>이현길</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-  <div id="전진우" class="section">
-    <h2>전진우</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-</body>
-
+        <div id="전진우" class="section">
+            <h2>전진우</h2>
+            <hr />
+            <p>분석 내용 및 결과를 작성하세요.</p>
+            <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
+        </div>
+    </body>
 </html>
