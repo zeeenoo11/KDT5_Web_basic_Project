@@ -103,10 +103,14 @@ model.load_state_dict(torch.load(model_path))
 predict_df = predict_df(data, start_date, pred_length)
 
 # HTML용 데이터 생성
-# label : data 전체 날짜
-labels = data["date"]
-data1 = data["norm"].str
-data2 = predict_df["value"].str
+# label : data 전체 날짜 + 예측 날짜
+labels = data["date"].tolist() + predict_df["date"].tolist()
+labels = [str(label) for label in labels]  # 날짜를 문자열로 변환
+data1 = data["denorm"].tolist()
+data2 = predict_df["value"].tolist()
+
+diff_length = len(labels) - len(data2)
+data2 = [0] * diff_length + data2
 
 # except Exception as e:
 #     e = e
@@ -174,16 +178,16 @@ print("<h1 style='text-align: center'>예측 결과</h1>")
 
 # 출력 테스트
 # print("<p> print test </p>")
-print("<p> start_date: ", start_date, "</p>")
-print("<p> pred_length: ", pred_length, "</p>")
-print("<p> labels: ", labels, "</p>")
-print("<p> data1: ", data1, "</p>")
-print("<p> data2: ", data2, "</p>")
+# print("<p> start_date: ", start_date, "</p>")
+# print("<p> pred_length: ", pred_length, "</p>")
+# print("<p> labels: ", labels, "</p>")
+# print("<p> data1: ", data1, "</p>")
+# print("<p> data2: ", data2, "</p>")
 # print("<p>", e, "</p>")
 
 # HTML 출력
 print(
-    html_text.replace("<!--LABELS-->", labels)
-    .replace("<!--DATA1-->", data1)
-    .replace("<!--DATA2-->", data2)
+    html_text.replace("<!--LABELS-->", json.dumps(labels))
+    .replace("<!--DATA1-->", f"{data1}")
+    .replace("<!--DATA2-->", f"{data2}")
 )
