@@ -301,4 +301,12 @@ https://pyscript.net/examples/hello_world.html
 
 ## 월요일 : 피피티 제작, 남은 작업 마무리
 
-### ppt 제작
+### 1. ppt 제작 -> 완료
+
+### 2. 입력 html 완성
+
+### 3. 연산 작동 시키기!!
+
+- 아래 html로 중간 결과가 출력 되게 했다
+- try exp 를 더 나눠서 하나씩 확인하자
+
