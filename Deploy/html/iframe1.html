@@ -1,73 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button.menu {
+        width: 90%;
+        height: 50px;
+        background-color: #4bd259;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>전력 가격 분석</h1>
+      <h2>데이터 1 : 전력거래 계통한계가격(SMP) 2001/04 ~ 2024/03</h2>
+    </header>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../mystyle.css" />
-  <style>
-    body {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
+    <main style="height: 500px;">
 
-    .section {
-      background-color: #f0f0f0;
-      padding: 20px;
-      border-radius: 10px;
-    }
-  </style>
-</head>
+      <div id="image">
+        <iframe src="https://epsis.kpx.or.kr/epsisnew/selectEkmaSmpSmpChart.do?menuId=040201"
+          style="width: 100%; height: 500px; border: none;"></iframe>
+      </div>
 
-<body>
+    </main>
 
-  <header>
-    <h1>간단 요약</h1>
-  </header>
-
-  <div id="옥영신" class="section">
-    <h2>옥영신</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-  <div id="명노아" class="section">
-    <h2>명노아</h2>
-    <hr>
-    <p>
-      국내 시간별 전력 수요량, 특히 제주도 시간별 전략 수요량을 통하여 RNN 분석 모델 개발<br>
-      총 24시간동안 사용한 전력을 참고해서 그 다음날 전력 사용량을 일별로 예측함
-    </p>
-    <p>결론 : <br>
-      1. 기본적으로 전기요금 인상, 기온 변화로 전기 수요가 소폭 감소함 => 전기차 판매 감소<br>
-      2. 반면, 전선 제조 원가의 90%을 차지하는 구리 가격은 최고치 => AI산업 확장에 따라 수요 증가<br>
-      3. 관련 주가 : 가온전선, 대원전선우, 지투파워 => 하나 사보자! .<br></p>
-  </div>
-
-  <div id="이현길" class="section">
-    <h2>이현길</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-  <div id="전진우" class="section">
-    <h2>전진우</h2>
-    <hr>
-    <p>
-      분석 내용 및 결과를 작성하세요.
-    </p>
-    <p>어떤 내용으로 분석했는지, 어떤 모델을 사용했는지, 어떤 결론을 도출했는지 알려주세요.</p>
-  </div>
-
-</body>
-
+    <footer>
+      <div id="buttons" style="display: flex; justify-content: space-between">
+      <button onclick="location.href='iframe3.html'" style="float: left">
+        메인으로
+      </button>
+      <button onclick="location.href='model_12m.html'" style="float: right">
+        다음 페이지
+      </button>
+      </div>
+    </footer>
+  </body>
 </html>
