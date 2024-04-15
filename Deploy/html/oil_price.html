@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Period</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h2>예측을 원하는 날짜를 선택하세요</h2>
+    <hr color="blue" size="2" />
+
+    <form method="post" action="../cgi-bin/predict_oil_price.py" enctype="multipart/form-data">
+        <input type="date" name="select_date" min="2024-04-13" max="2030-12-31" required />
+        &nbsp;
+        <input type="checkbox" name="re_predict" />예측값 재생성(결과 도출까지 시간이 오래 걸립니다)<br />
+        <input type="submit" />
+        <hr color="blue" size="2" />
+    </form>
+    <fieldset>
+        <legend>예측 결과</legend>
+        <canvas id="myChart" width="100%"></canvas>
+        <script>
+            var chartData = REPLACE_DATA;
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: chartData.labels,
+                    datasets: [
+                        {
+                            label: "실제 값",
+                            data: chartData.data2,
+                            backgroundColor: "rgba(54, 162, 235, 0.2)",
+                            borderColor: "rgba(54, 162, 235, 1)",
+                            borderWidth: 1,
+                        },
+                        {
+                            label: "예측 값",
+                            data: chartData.data1,
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                },
+            });
+        </script>
+        <center>
+            <h3>예측을 원하는 날짜를 선택하세요</h3>
+        </center>
+    </fieldset>
+</body>
+
+</html>
