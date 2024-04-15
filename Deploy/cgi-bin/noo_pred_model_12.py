@@ -110,7 +110,7 @@ data1 = data["denorm"].tolist()
 data2 = predict_df["value"].tolist()
 
 diff_length = len(labels) - len(data2)
-data2 = [0] * diff_length + data2
+data2 = data1[:diff_length] + data2
 
 # except Exception as e:
 #     e = e
