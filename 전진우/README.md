@@ -14,7 +14,6 @@
 1. 월별 가중평균 SMP : 통합 전력으로 분석하면 되겠다
    -> 전력 가격 예측 (일단 해보기)
 2. 시간대별 SMP : 의미 있는 데이터를 뽑을 수 있을까?
-   - 노아 데이터가 시간대별로 정리했다.
 
 ## 1. 데이터 수집
 
@@ -120,7 +119,7 @@
 2. 어떤 데이터로 흐름을 잡을 지 고민하기
 3. html 페이지 만들기
 
-### 3. html 페이지 만들기
+## 3. html 페이지 만들기
 
 #### 페이지 구성
 
@@ -172,92 +171,7 @@ y축 지표는 SMP의 가중평균으로, 통합 SMP는 육지의 거래량이 �
 
 ##### 고민 : 이미지를 컨테이너에 담고 슬라이드로 넘기는 방법?
 
-html에서 이미지를 넣고 슬라이드로 넘기는 방법  
-이거 한 번 써보기
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Image Slider</title>
-    <style>
-      .container {
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-      }
-
-      img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-      }
-
-      .slider {
-        display: flex;
-        width: 300%;
-      }
-
-      .slide {
-        width: 33.3333%;
-        transition: 0.5s;
-      }
-
-      #btn {
-        display: flex;
-        justify-content: center;
-      }
-
-      button {
-        padding: 10px;
-        margin: 10px;
-        background-color: #f1f1f1;
-        border: none;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="slider">
-        <div class="slide">
-          <img src="md_img/image.png" />
-        </div>
-        <div class="slide">
-          <img src="md_img/image-1.png" />
-        </div>
-        <div class="slide">
-          <img src="md_img/image-2.png" />
-        </div>
-      </div>
-    </div>
-    <div id="btn">
-      <button onclick="prev()">Prev</button>
-      <button onclick="next()">Next</button>
-    </div>
-    <script>
-      let slider = document.querySelector(".slider");
-      let slides = document.querySelectorAll(".slide");
-      let index = 0;
-
-      function prev() {
-        index = index > 0 ? index - 1 : 0;
-        update();
-      }
-
-      function next() {
-        index = index < slides.length - 1 ? index + 1 : slides.length - 1;
-        update();
-      }
-
-      function update() {
-        let size = slides[index].clientWidth;
-        slider.style.transform = `translateX(${-size * index}px)`;
-      }
-    </script>
-  </body>
-</html>
-```
+html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 
 #### 5. iframe3.html : 모델 소개
 
@@ -279,6 +193,7 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법
 
 - 실제 데이터
   ![4월 실제](md_img/image_result.png)
+  : 행 복
 
 #### 7. iframe5.html : 일자별, 시간별 데이터?
 
@@ -287,3 +202,93 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법
 
 - 그리고 6개월치 예측자료도 필요함
 - 특별한 경우 : 유가 상승, 금리 변동, 전력 수요 변화 등을 고려하지 않음을 전제
+
+---
+
+## 4. 일요일 : 모여서 전체 흐름 잡기
+
+### 간단 정리
+
+- smp를 가져와서 12개월 단위로 노아모델을 돌렸고 잘 안됐다 - 해당 모델도 만들어서 돌려볼까?
+- 하지만 6개월 단위로 돌리니까 잘 됐다
+
+### 할 일 :
+
+[ㅇ] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
+[ㅇ] 12개월 모델 만들기 (난이도 하 우선순위 상)  
+[ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
+[ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
+: https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
+:https://www.chartjs.org/docs/latest/getting-started/    
+[] 구간별로 나누어 예측하기 (급등, 급락) (난이도 상 우선순위 중하)  
+[] 이미지 슬라이드 만들기 (난이도 상 우선순위 하)  
+[] 시간별 데이터로 예측하기 (난이도 하 우선순위 하)
+
+## 5. SMP 예측 함수 만들기
+
+![alt text](md_img/image_pred_total.png)
+: ㅠㅠㅠ 첫 6개월만 넣으니 큰 변수를 예측하진 못한다
+
+### 해결방안
+1. 12개월로 만들어보기
+2. 구간별로 나눠서 예측하기 (급등 급락)
+3. 구간을 조건으로 두고 미래 예측에 변수로 넣기
+
+#### 가능한 조건
+학습에 -
+1. 전체 데이터 넣기
+2. 급등 급락 없는 구간만 넣기
+3. 급등 구간 빼기
+4. 급락 구간 빼기
+
+## 6. 12개월 모델로 예측해보기
+
+: 그래프 만들기가 까다로워서 현재 기준 얼마나 예측을 할지만 만들기
+-> df 함수 성공
+
+## 7. noo_pred_model.py : 모델 연동하는 파이썬 파일 만들기
+
+- html에서 받아온 정보로 모델을 돌려서 예측값을 보내주는 파이썬 파일
+- 모델을 불러와서 예측값을 보내주는 함수를 만들어보자
+
+### pyscript ??
+https://pyscript.net/examples/hello_world.html
+: html 안에서 파이썬 가능한데?
+
+![send data check](md_img/image_form_check.png)
+: 데이터 잘 넘어간다
+
+![graph test!](md_img/image_chart_check.png)
+
+### 최종 완성 : 근데 함수 연산이 안된다 ㅠㅠ
+
+- 일단 try: exacept:로 예외처리하고 안되면 임의 값 출력
+
+![temp graph](md_img/image_try_exp.png)
+
+![try_except](md_img/image_try_exp_code.png)
+: 만들어진 try exp 코드 ㅎ
+
+![index_check](md_img/image_index_check.png)
+: 인덱스 페이지에서 실행되도록 만들었다!
+
+## 퇴근!
+
+### 다음 할 일
+
+#### 뿌듯 -
+[ㅇ] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
+[ㅇ] 12개월 모델 만들기 (난이도 하 우선순위 상)  
+[ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
+[ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
+: https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
+:https://www.chartjs.org/docs/latest/getting-started/   
+
+#### 할 일
+[] 내부 예측 연산 작동시키기 (난이도 상 우선순위 최상)
+[] 입력 html (model_12) 완성하기 (난이도 하 우선순위 상)
+[] 6개월 모델도 만들기 (난이도 상 우선순위 중)
+[] 구간별로 나누어 예측하기 (급등, 급락) (난이도 상 우선순위 중)
+[] 다른 팀원 자료와 연동하기 (난이도 최상 우선순위 중하)
+[] 이미지 슬라이드 만들기 (난이도 상 우선순위 하)  
+[] 시간별 데이터로 예측하기 (난이도 하 우선순위 하)
