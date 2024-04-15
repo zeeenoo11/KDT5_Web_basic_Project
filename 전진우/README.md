@@ -219,7 +219,7 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 [ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
 [ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
 : https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
-:https://www.chartjs.org/docs/latest/getting-started/    
+:https://www.chartjs.org/docs/latest/getting-started/  
 [] 구간별로 나누어 예측하기 (급등, 급락) (난이도 상 우선순위 중하)  
 [] 이미지 슬라이드 만들기 (난이도 상 우선순위 하)  
 [] 시간별 데이터로 예측하기 (난이도 하 우선순위 하)
@@ -230,12 +230,15 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 : ㅠㅠㅠ 첫 6개월만 넣으니 큰 변수를 예측하진 못한다
 
 ### 해결방안
+
 1. 12개월로 만들어보기
 2. 구간별로 나눠서 예측하기 (급등 급락)
 3. 구간을 조건으로 두고 미래 예측에 변수로 넣기
 
 #### 가능한 조건
+
 학습에 -
+
 1. 전체 데이터 넣기
 2. 급등 급락 없는 구간만 넣기
 3. 급등 구간 빼기
@@ -252,6 +255,7 @@ html에서 이미지를 넣고 슬라이드로 넘기는 방법 -> 패스
 - 모델을 불러와서 예측값을 보내주는 함수를 만들어보자
 
 ### pyscript ??
+
 https://pyscript.net/examples/hello_world.html
 : html 안에서 파이썬 가능한데?
 
@@ -277,14 +281,16 @@ https://pyscript.net/examples/hello_world.html
 ### 다음 할 일
 
 #### 뿌듯 -
+
 [ㅇ] 모델과 연동하는 페이지 만들기 (난이도 상 우선순위 최상)  
 [ㅇ] 12개월 모델 만들기 (난이도 하 우선순위 상)  
 [ㅇ] 유가, 수요량과 가격 연관성 보기 (난이도 중하 우선순위 중)  
 [ㅇ] chart.js 사용 (난이도 상 우선순위 중)  
 : https://www.w3schools.com/js/js_graphics_chartjs.asp 해보기
-:https://www.chartjs.org/docs/latest/getting-started/   
+:https://www.chartjs.org/docs/latest/getting-started/
 
 #### 할 일
+
 [] 내부 예측 연산 작동시키기 (난이도 상 우선순위 최상)
 [] 입력 html (model_12) 완성하기 (난이도 하 우선순위 상)
 [] 6개월 모델도 만들기 (난이도 상 우선순위 중)
@@ -292,3 +298,15 @@ https://pyscript.net/examples/hello_world.html
 [] 다른 팀원 자료와 연동하기 (난이도 최상 우선순위 중하)
 [] 이미지 슬라이드 만들기 (난이도 상 우선순위 하)  
 [] 시간별 데이터로 예측하기 (난이도 하 우선순위 하)
+
+## 월요일 : 피피티 제작, 남은 작업 마무리
+
+### 1. ppt 제작 -> 완료
+
+### 2. 입력 html 완성
+
+### 3. 연산 작동 시키기!!
+
+- 아래 html로 중간 결과가 출력 되게 했다
+- try exp 를 더 나눠서 하나씩 확인하자
+
